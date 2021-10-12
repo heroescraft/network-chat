@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="static/w3.css">
+	</head>
+	<body  class="w3-sand" onload="Focus()">
+	<div class="w3-container w3-indigo">
+	  <h1>Network Chat</h1>
+	</div>
+	<br><br>
+
+	{% for message in messages %}
+		<div class="w3-container w3-{{message['color']}} w3-padding-16 w3-round-large">
+		{{message['name']}}: {{message['message']}}
+		</div>
+	{% endfor %}
+
+	
+	<div class="w3-container w3-pale-blue w3-padding-16 w3-round-large">
+	<form action="/send{{key}}" method="POST">
+	<input type="text" name="message" id="message"/>
+	
+	<button type="submit" class="w3-button w3-round-large w3-khaki" id="bottom">Send</button>
+	</form>
+	</div>
+
+
+	<script>
+	function Focus(){
+		document.getElementById("message").focus();
+	}
+	</script>
+	</body>
+</html>

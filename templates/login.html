@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="static/w3.css">
+		{% if key != '' and not error%}
+		<meta http-equiv="refresh" content="0; URL=/chat{{ key }}"/>
+		{% endif %}
+	</head>
+	<body  class="w3-sand">
+	<div class="w3-container w3-indigo">
+	  <h1>Network Chat</h1>
+	</div>
+	<div class="w3-display-container" style="height:100%;">
+	<div class="w3-container w3-pale-blue w3-display-middle w3-padding-32 w3-round-large">
+	<h2>Login</h2>
+	<form action="/login_process" method="POST">
+	<p><label for="name">Name:</label>
+	<input type="text" id="name" name="name" value="{{ name }}"/></p>
+	
+	<p><label for="password">Password:</label>
+	<input type="password" id="password" name="password" value="{{ password }}"/></p>
+	
+	<button type="submit" class="w3-button w3-round-large w3-khaki">Submit</button>
+	
+	<a href="/" class="w3-button w3-round-large w3-khaki">Cancel</a>
+	</form>
+	{% if error %}
+	<div class="w3-panel w3-red w3-display-container">
+	  <span onclick="this.parentElement.style.display='none'"
+	  class="w3-button w3-large w3-display-topright">&times;</span>
+	  <p>{{ error_message }}</p>
+	</div>
+	{% endif %}
+	</div>
+	</div>
+	</body>
+</html>
