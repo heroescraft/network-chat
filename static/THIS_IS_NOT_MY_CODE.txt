@@ -1,0 +1,1 @@
+I didn't want the server sending requests to w3schools for their library, so I thought it be fine if I include it in package.
